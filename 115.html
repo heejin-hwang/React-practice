@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>More Components</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        #container {
+            padding: 50px;
+            background-color: #FFF;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <script type="text/babel">
+        class Stuff extends React.Component{
+            render(){
+
+                return (
+                    // [
+                    //     <p key="1">I am</p>,
+                    //     <p key="2">returning a list</p>,
+                    //     <p key="3">of things!</p>
+                    // ]
+
+                    <React.Fragment>
+
+                        <p>I am</p>
+                        <p>returning a list</p>
+                        <p>of things!</p>
+                    </React.Fragment>
+                    // React.Fragment 컴포넌트는 실제로 DOM 엘리먼트로 생성되지 않는다. 단지 HTML로 트랜스파일될 때 존재하지 않는 것으로 취급하라고 JSX에게 알려줄 뿐.
+                    // 아이템들이 배열에 담겨 리턴되는 것이 아니므로 쉼표나 다른 구분자가 필요없다.
+                    // <React.Fragment> == <>
+                );
+            }
+        }
+
+        var swatchComponent = <Swatch color="#2F004F"></Swatch>;
+        ReactDOM.render(
+            <div>
+
+                {swatchComponent}
+            </div>,
+            document.querySelector("#container")
+        );
+    </script>
+</body>
+</html>
