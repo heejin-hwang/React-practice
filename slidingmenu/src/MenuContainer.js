@@ -9,15 +9,14 @@ class MenuContainer extends Component {
         this.state = {
             visible: false
         };
-        console.log('this.state.visible: '+ this.state.visible);
         this.handleMouseDown = this.handleMouseDown.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
     }
 
     handleMouseDown(e) {
         this.toggleMenu();
-        console.log('this.state.visible: '+ this.state.visible);
         console.log("clicked");
+        console.log('-----handleMouseDown: '+ this.state.visible);
         e.stopPropagation();
     }
 
@@ -25,10 +24,11 @@ class MenuContainer extends Component {
         this.setState({
             visible: !this.state.visible
         });
-        console.log(this.state.visible);
+        console.log('------toggleMenu : ' + this.state.visible);
     }
 
     render() {
+        console.log('---Rendering: MenuContainer');
         return (
             <div>
                 <MenuButton handleMouseDown={this.handleMouseDown}/>
